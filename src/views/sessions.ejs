@@ -115,19 +115,17 @@
 <section class="sec_include">
         <div class="container">
 
+            <% sessions.map((session)=>{%>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-4 adj_text">    
+    
+                        <h3><%=session.title%></h3>
+                        <p><%=session.description%></p>
 
-			<div class="row">
-			    <div class="col-xs-12 col-sm-4 col-md-4 adj_text">
+     <a href="#" class="btn-oval">Learn More</a>
+        </div>                
+                <%}) %>
 
-
-					<h3>DARK ENERGY</h3>
-<p>BRIGHTENS THE WORLD</p>
- <img src="images/Bitmap.png" alt="Public Adjuster"/>
-
- <div class="read-more-btn">
- <a href="#" class="btn-oval">Learn More</a>
- </div>
-	</div>
 			</div>
 		</div>
 	</section>
