@@ -115,18 +115,17 @@
 <section class="sec_include">
         <div class="container">
 
-            <% sessions.map((session)=>{%>
-                <div class="row">
+            <% sessions.map((session, index)=>{%>
                     <div class="col-xs-12 col-sm-4 col-md-4 adj_text">    
     
                         <h3><%=session.title%></h3>
-                        <p><%=session.description%></p>
+                        <p><%=session.description.slice(0,300)%></p>
 
-     <a href="#" class="btn-oval">Learn More</a>
+     <a href="/sessions/<%=index%>" class="btn-oval">Learn More</a>
         </div>                
                 <%}) %>
 
-			</div>
+
 		</div>
 	</section>
 
