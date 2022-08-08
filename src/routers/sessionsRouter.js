@@ -51,7 +51,7 @@ sessionsRouter.route('/:id').get((req, res) => {
   
              const sessions = await db.collection('sessions').findOne({_id: new ObjectID(id)});
              res.render('session', {
-                sessions
+                sessions,
             });
  
          } catch (error) {
