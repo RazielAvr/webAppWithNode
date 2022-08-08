@@ -49,7 +49,7 @@ sessionsRouter.route('/:id').get((req, res) => {
             
             const db = client.db(dbName);
   
-             const sessions = await db.collection('sessions').findOne({_id: new ObjectID(id)});
+             const session = await db.collection('sessions').findOne({_id: new ObjectID(id)});
              res.render('session', {
                 session
             });
