@@ -18,8 +18,8 @@ adminRouter.route('/').get((req, res) => {
         let client;
         try {
             client = await MongoClient.connect(uri2);
-            ///debug('Connected to the mongo DB');
-            console.log('Connected to the mongo DB');
+            debug('Connected to the mongo DB');
+            //console.log('Connected to the mongo DB');
            
            const db = client.db(dbName);
 
@@ -27,11 +27,11 @@ adminRouter.route('/').get((req, res) => {
             res.json(response);
 
         } catch (error) {
-           // debug(error.stack);
-           console.log(error.stack);
+           debug(error.stack);
+           //console.log(error.stack);
         }
          // Close connection
-         //client.close();
+         client.close();
     }());
 });
 
