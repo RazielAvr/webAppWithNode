@@ -59,7 +59,7 @@ sessionsRouter.route('/:id').get((req, res) => {
             console.log(error.stack);
          }
           // Close connection
-          //client.close();
+          client.close();
      }());
     
 });
