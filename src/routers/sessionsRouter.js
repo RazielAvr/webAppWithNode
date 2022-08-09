@@ -2,8 +2,16 @@ const express = require('express');
 const sessionsRouter = express.Router();
 const debug = require('debug')('app:sessionsRouter');
 const { MongoClient, ObjectID } = require('mongodb');
-const sessions = require('../data/sessions.json');
 
+const sessions = require('../data/sessions.json');
+sessionsRouter.use((req, res, next) => {
+  if(req.user){
+    next();
+  }
+  else{
+    res.redirect('/auth/signIn');
+  }
+});
 
 sessionsRouter.route('/').get((req, res) => {
     const uri2 = 'mongodb+srv://Razielav:7X7J8LEDV253dk38@globomantics.oa61v.mongodb.net?retryWrites=true&w=majority';

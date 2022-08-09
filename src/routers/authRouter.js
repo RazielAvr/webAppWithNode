@@ -2,6 +2,8 @@ const express = require('express');
 const debug = require('debug')('app:authRouter');
 const { MongoClient, ObjectID } = require('mongodb');
 
+const passport = require('passport');
+
 const authRouter = express.Router();
 
 authRouter.route('/signUp').post((req, res) =>{
@@ -30,6 +32,14 @@ authRouter.route('/signUp').post((req, res) =>{
         client.close();
      }());
 });
+authRouter.route('/signIn').get((req, res) => {
+    res.render('signin');
+}).post(
+    passport.authenticate('local', {
+    successRedirect: '/auth/profile',
+    failureMessage: '/',
+})
+);
 authRouter.route('/profile').get((req, res) =>{
     res.json(req.user);
 });
